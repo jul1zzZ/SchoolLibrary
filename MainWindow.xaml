@@ -15,9 +15,10 @@
         <Grid Background="CornflowerBlue" Grid.Row="0"/>
         <TextBlock Grid.Row="0" Text="Language School" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontStyle="Italic" FontFamily="Calibri"/>
         <Grid Grid.Row="2" Background="CornflowerBlue"/>
-        <Image Grid.Row="0" Source="C:\Users\witless\Desktop\School\Resources\school_logo.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0"/>
+        <Image Grid.Row="0" Source="C:\Users\witless\Desktop\SchoolLibrary-main\Resources\school_logo.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0"/>
         <Frame x:Name="MaimFrame" Grid.Row="1" ContentRendered="MaimFrame_ContentRendered"/>
         <Button x:Name="BtnBack" Content="Back" Foreground="White" Background="CornflowerBlue" Click="BtnBack_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="20 0" Height="30" Width="50"/>
         <Button x:Name="AdminBtn" Content="Admin" Foreground="White" Background="CornflowerBlue" Click="AdminBtn_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="80 0" Height="30" Width="50"/>
+        <Button x:Name="ServiceBtn" Content="Services" Foreground="White" Background="CornflowerBlue" Click="ServiceBtn_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="140 0" Height="30" Width="50"/>
     </Grid>
 </Window>

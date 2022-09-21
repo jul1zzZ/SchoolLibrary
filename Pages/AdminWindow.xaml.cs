@@ -29,6 +29,7 @@ namespace School.Pages
         {
             InitializeComponent();
             _correctPass = "0000";
+            DataContext = this;
         }
 
         private void CheckBtn_Click(object sender, RoutedEventArgs e)
@@ -39,11 +40,13 @@ namespace School.Pages
                 this.Close();               
             }
             _IsCorrect = true;
+            AuthAdmin.IsAuth = true;
             if (_correctPass == PassTb.Text)
             {
+                
                 this.Close();
+                
             }
-            AuthAdmin.IsAuth = true;
         }
     }
 }

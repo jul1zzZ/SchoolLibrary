@@ -45,8 +45,6 @@
                                 <Run Text="{Binding Price, StringFormat='{}{0} рублей'}"/>
                                 <Run Text="{Binding Duration, StringFormat='{}за {0} минут'}"/>
                             </TextBlock>
-                            <Button x:Name="EditBtn" Click="EditBtn_Click" Width="85" Height="20" Content="Редактировать" HorizontalAlignment="Left" Background="CornflowerBlue" Foreground="White"/>
-                            <Button x:Name="DeleteBtn" Click="DeleteBtn_Click" Width="60" Height="20" Content="Удалить" HorizontalAlignment="Left" Margin="0 10" Background="CornflowerBlue" Foreground="White"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\witless\Desktop\School\obj\Debug\
+C:\Users\Администратор\Desktop\SchoolLibrary-main\obj\Debug\
 School
 none
 false
 DEBUG;TRACE
-C:\Users\witless\Desktop\School\App.xaml
-4-1849505665
+C:\Users\Администратор\Desktop\SchoolLibrary-main\App.xaml
+5695534576
 2-1436223632
-27-1658678936
-191258240642
-MainWindow.xaml;Pages\AdminWindow.xaml;Pages\EditPage.xaml;Pages\ServicePage.xaml;
+28-1865731233
+19-1346167011
+MainWindow.xaml;Pages\AdminWindow.xaml;Pages\EditPage.xaml;Pages\ServicePage.xaml;Pages\ServiceTablePage.xaml;
 
 True
 

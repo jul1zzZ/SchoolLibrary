@@ -21,14 +21,25 @@ namespace School
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
             MaimFrame.Navigate(new Pages.ServicePage());
+            
         }
 
         private void MaimFrame_ContentRendered(object sender, EventArgs e)
         {
+            if (AuthAdmin.IsAuth)
+            {
+                ServiceBtn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ServiceBtn.Visibility = Visibility.Collapsed;
+            }
+
             if (MaimFrame.CanGoBack)
             {
                 BtnBack.Visibility = Visibility.Visible;
@@ -39,7 +50,9 @@ namespace School
                 BtnBack.Visibility = Visibility.Collapsed;
                 AdminBtn.Visibility = Visibility.Visible;
             }
+            
         }
+    
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
@@ -53,7 +66,12 @@ namespace School
         {
             AdminWindow adminWindow = new AdminWindow();
             adminWindow.Show();
-            
+            AuthAdmin.IsAuth = true;
+        }
+
+        private void ServiceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MaimFrame.Navigate(new Pages.ServiceTablePage());
         }
     }
 }

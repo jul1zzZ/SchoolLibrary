@@ -73,7 +73,7 @@ namespace School.Entities
         {
             get
             {
-                if (Sale > 5)
+                if (Sale > 0)
                     return "#90EE90";
                 else
                     return "#ffffff";

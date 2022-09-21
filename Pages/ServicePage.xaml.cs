@@ -39,6 +39,25 @@ namespace School.Pages
             ServicesFiltCb.SelectedIndex = 0;
             ServicesSortCb.SelectedIndex = 0;
 
+
+            if (AuthAdmin.IsAuth == true)
+            {
+               
+            }
+        }
+
+        private List<Button> buttons()
+        {
+            List<Button> buttons = new List<Button>();
+            for (int i =0 ;i < ServiceLB.Items.Count; i++)
+            {
+                if (ServiceLB.Items[i] is Button)
+                {
+                    Button b = (Button)ServiceLB.Items[i];
+                    buttons.Add(b);
+                }
+            }
+            return buttons;
         }
 
         private void Update()
@@ -89,15 +108,6 @@ namespace School.Pages
             
         }
 
-        private void EditBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Pages.EditPage((Service) (sender as Button).DataContext));
-        }
-
-        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
-        {
-         
-        }
 
         private void ServicesSortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
