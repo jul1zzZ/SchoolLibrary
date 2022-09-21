@@ -4,32 +4,31 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4d1b9fa0845041a998b16e9d034962a4" Name="Diagram1">
+      <Diagram DiagramId="d90dba4684ec459b9febaa07818e2462" Name="Diagram1" ZoomLevel="40">
         <EntityTypeShape EntityType="VolgaModel.AdditionalProduct" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="VolgaModel.CategoryEmployee" Width="1.5" PointX="1.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VolgaModel.CategoryEmployee" Width="1.5" PointX="3.75" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="VolgaModel.CategoryProduct" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="VolgaModel.Client" Width="1.5" PointX="3.75" PointY="19.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VolgaModel.Delivery" Width="1.5" PointX="6" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VolgaModel.Employee" Width="1.5" PointX="3.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VolgaModel.Client" Width="1.5" PointX="8.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VolgaModel.Delivery" Width="1.5" PointX="11" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VolgaModel.Employee" Width="1.5" PointX="6" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="VolgaModel.Produc" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VolgaModel.Product" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="VolgaModel.Sale" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VolgaModel.Season" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="VolgaModel.Service" Width="1.5" PointX="3.75" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="VolgaModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VolgaModel.TimeSheet" Width="1.5" PointX="6" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VolgaModel.Service" Width="1.5" PointX="8.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VolgaModel.TimeSheet" Width="1.5" PointX="11" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="VolgaModel.WareHouse" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
         <AssociationConnector Association="VolgaModel.FK_AdditionalProduct_Product" ManuallyRouted="false" />
         <AssociationConnector Association="VolgaModel.FK_Employee_CategoryEmployee" ManuallyRouted="false" />
         <AssociationConnector Association="VolgaModel.FK_Product_CategoryProduct" ManuallyRouted="false" />
         <AssociationConnector Association="VolgaModel.FK_Delivery_Clients" ManuallyRouted="false" />
         <AssociationConnector Association="VolgaModel.FK_Delivery_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="VolgaModel.FK_Sale_Employee" ManuallyRouted="false" />
         <AssociationConnector Association="VolgaModel.FK_TimeSheet_Employee" ManuallyRouted="false" />
         <AssociationConnector Association="VolgaModel.FK_Product_Produc" ManuallyRouted="false" />
         <AssociationConnector Association="VolgaModel.FK_Product_Season" ManuallyRouted="false" />
         <AssociationConnector Association="VolgaModel.FK_Sale_Product" ManuallyRouted="false" />
         <AssociationConnector Association="VolgaModel.FK_WareHouse_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="VolgaModel.FK_Sale_TimeSheet" ManuallyRouted="false" />
         <AssociationConnector Association="VolgaModel.FK_TimeSheet_Service" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

@@ -95,8 +95,8 @@
     </Key>
     <Property Name="SaleID" Type="int" Nullable="false" />
     <Property Name="ProductID" Type="int" Nullable="false" />
-    <Property Name="TimeSheetID" Type="int" Nullable="false" />
     <Property Name="TimeSale" Type="time" Precision="6" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Season">
     <Key>
@@ -109,22 +109,12 @@
     <Key>
       <PropertyRef Name="ServiceID" />
     </Key>
-    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="ServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="MainPhoto" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Duration" Type="float" Nullable="false" />
     <Property Name="Price" Type="float" Nullable="false" />
     <Property Name="Sale" Type="int" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="TimeSheet">
     <Key>
@@ -226,6 +216,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Sale_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Sale_Product">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
@@ -235,18 +237,6 @@
       </Principal>
       <Dependent Role="Sale">
         <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Sale_TimeSheet">
-    <End Role="TimeSheet" Type="Self.TimeSheet" Multiplicity="1" />
-    <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TimeSheet">
-        <PropertyRef Name="TimeSheetID" />
-      </Principal>
-      <Dependent Role="Sale">
-        <PropertyRef Name="TimeSheetID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -298,7 +288,6 @@
     <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Season" EntityType="Self.Season" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TimeSheet" EntityType="Self.TimeSheet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WareHouse" EntityType="Self.WareHouse" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_AdditionalProduct_Product" Association="Self.FK_AdditionalProduct_Product">
@@ -329,12 +318,12 @@
       <End Role="Season" EntitySet="Season" />
       <End Role="Product" EntitySet="Product" />
     </AssociationSet>
-    <AssociationSet Name="FK_Sale_Product" Association="Self.FK_Sale_Product">
-      <End Role="Product" EntitySet="Product" />
+    <AssociationSet Name="FK_Sale_Employee" Association="Self.FK_Sale_Employee">
+      <End Role="Employee" EntitySet="Employee" />
       <End Role="Sale" EntitySet="Sale" />
     </AssociationSet>
-    <AssociationSet Name="FK_Sale_TimeSheet" Association="Self.FK_Sale_TimeSheet">
-      <End Role="TimeSheet" EntitySet="TimeSheet" />
+    <AssociationSet Name="FK_Sale_Product" Association="Self.FK_Sale_Product">
+      <End Role="Product" EntitySet="Product" />
       <End Role="Sale" EntitySet="Sale" />
     </AssociationSet>
     <AssociationSet Name="FK_TimeSheet_Employee" Association="Self.FK_TimeSheet_Employee">

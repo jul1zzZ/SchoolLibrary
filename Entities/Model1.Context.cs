@@ -26,7 +26,7 @@ namespace School.Entities
         }
 
         static private VolgaEntities _context;
-         static public VolgaEntities GetContext()
+        static public VolgaEntities GetContext()
         {
             if (_context == null)
             {
@@ -34,6 +34,8 @@ namespace School.Entities
             }
             return _context;
         }
+        public virtual DbSet<AdditionalProduct> AdditionalProducts { get; set; }
+        public virtual DbSet<CategoryEmployee> CategoryEmployees { get; set; }
         public virtual DbSet<CategoryProduct> CategoryProducts { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Delivery> Deliveries { get; set; }
@@ -43,7 +45,6 @@ namespace School.Entities
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<Season> Seasons { get; set; }
         public virtual DbSet<Service> Services { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TimeSheet> TimeSheets { get; set; }
         public virtual DbSet<WareHouse> WareHouses { get; set; }
     }

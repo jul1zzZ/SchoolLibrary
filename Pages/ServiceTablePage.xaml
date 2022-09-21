@@ -39,7 +39,7 @@
                 <DataGridTemplateColumn Header="Цена" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Price}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Price}" x:Name="TxtPricecs" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -60,6 +60,5 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="DeleteBtn" Width="60" Height="30" Grid.Row="1" Content="Delete" VerticalAlignment="Center" HorizontalAlignment="Right" Click="DeleteBtn_Click" Foreground="White" Background="CornflowerBlue" Margin="20 0"/>
-        <Button x:Name="AddBtn" Width="60" Height="30" Grid.Row="1" Content="Add" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" Click="AddBtn_Click" Background="CornflowerBlue" Margin="20 0"/>
     </Grid>
 </Page>

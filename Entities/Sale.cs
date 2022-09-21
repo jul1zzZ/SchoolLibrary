@@ -16,10 +16,10 @@ namespace School.Entities
     {
         public int SaleID { get; set; }
         public int ProductID { get; set; }
-        public int TimeSheetID { get; set; }
         public System.TimeSpan TimeSale { get; set; }
+        public int EmployeeID { get; set; }
     
+        public virtual Employee Employee { get; set; }
         public virtual Product Product { get; set; }
-        public virtual TimeSheet TimeSheet { get; set; }
     }
 }

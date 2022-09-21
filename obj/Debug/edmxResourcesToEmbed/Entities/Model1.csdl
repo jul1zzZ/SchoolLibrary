@@ -69,6 +69,7 @@
     <Property Name="DateBirth" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="CategoryEmployeeID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="CategoryEmployee" Relationship="Self.FK_Employee_CategoryEmployee" FromRole="Employee" ToRole="CategoryEmployee" />
+    <NavigationProperty Name="Sales" Relationship="Self.FK_Sale_Employee" FromRole="Employee" ToRole="Sale" />
     <NavigationProperty Name="TimeSheets" Relationship="Self.FK_TimeSheet_Employee" FromRole="Employee" ToRole="TimeSheet" />
   </EntityType>
   <EntityType Name="Produc">
@@ -110,10 +111,10 @@
     </Key>
     <Property Name="SaleID" Type="Int32" Nullable="false" />
     <Property Name="ProductID" Type="Int32" Nullable="false" />
-    <Property Name="TimeSheetID" Type="Int32" Nullable="false" />
     <Property Name="TimeSale" Type="Time" Nullable="false" Precision="6" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Sale_Employee" FromRole="Sale" ToRole="Employee" />
     <NavigationProperty Name="Product" Relationship="Self.FK_Sale_Product" FromRole="Sale" ToRole="Product" />
-    <NavigationProperty Name="TimeSheet" Relationship="Self.FK_Sale_TimeSheet" FromRole="Sale" ToRole="TimeSheet" />
   </EntityType>
   <EntityType Name="Season">
     <Key>
@@ -127,7 +128,7 @@
     <Key>
       <PropertyRef Name="ServiceID" />
     </Key>
-    <Property Name="ServiceID" Type="Int32" Nullable="false" />
+    <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="MainPhoto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Duration" Type="Double" Nullable="false" />
@@ -135,16 +136,6 @@
     <Property Name="Sale" Type="Int32" />
     <NavigationProperty Name="Deliveries" Relationship="Self.FK_Delivery_Service" FromRole="Service" ToRole="Delivery" />
     <NavigationProperty Name="TimeSheets" Relationship="Self.FK_TimeSheet_Service" FromRole="Service" ToRole="TimeSheet" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="TimeSheet">
     <Key>
@@ -154,7 +145,6 @@
     <Property Name="EmployeeID" Type="Int32" Nullable="false" />
     <Property Name="ServiceID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Employee" Relationship="Self.FK_TimeSheet_Employee" FromRole="TimeSheet" ToRole="Employee" />
-    <NavigationProperty Name="Sales" Relationship="Self.FK_Sale_TimeSheet" FromRole="TimeSheet" ToRole="Sale" />
     <NavigationProperty Name="Service" Relationship="Self.FK_TimeSheet_Service" FromRole="TimeSheet" ToRole="Service" />
   </EntityType>
   <EntityType Name="WareHouse">
@@ -226,6 +216,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Sale_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_TimeSheet_Employee">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
     <End Role="TimeSheet" Type="Self.TimeSheet" Multiplicity="*" />
@@ -286,18 +288,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Sale_TimeSheet">
-    <End Role="TimeSheet" Type="Self.TimeSheet" Multiplicity="1" />
-    <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TimeSheet">
-        <PropertyRef Name="TimeSheetID" />
-      </Principal>
-      <Dependent Role="Sale">
-        <PropertyRef Name="TimeSheetID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_TimeSheet_Service">
     <End Role="Service" Type="Self.Service" Multiplicity="1" />
     <End Role="TimeSheet" Type="Self.TimeSheet" Multiplicity="*" />
@@ -322,7 +312,6 @@
     <EntitySet Name="Sales" EntityType="Self.Sale" />
     <EntitySet Name="Seasons" EntityType="Self.Season" />
     <EntitySet Name="Services" EntityType="Self.Service" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TimeSheets" EntityType="Self.TimeSheet" />
     <EntitySet Name="WareHouses" EntityType="Self.WareHouse" />
     <AssociationSet Name="FK_AdditionalProduct_Product" Association="Self.FK_AdditionalProduct_Product">
@@ -345,6 +334,10 @@
       <End Role="Service" EntitySet="Services" />
       <End Role="Delivery" EntitySet="Deliveries" />
     </AssociationSet>
+    <AssociationSet Name="FK_Sale_Employee" Association="Self.FK_Sale_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Sale" EntitySet="Sales" />
+    </AssociationSet>
     <AssociationSet Name="FK_TimeSheet_Employee" Association="Self.FK_TimeSheet_Employee">
       <End Role="Employee" EntitySet="Employees" />
       <End Role="TimeSheet" EntitySet="TimeSheets" />
@@ -364,10 +357,6 @@
     <AssociationSet Name="FK_WareHouse_Product" Association="Self.FK_WareHouse_Product">
       <End Role="Product" EntitySet="Products" />
       <End Role="WareHouse" EntitySet="WareHouses" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Sale_TimeSheet" Association="Self.FK_Sale_TimeSheet">
-      <End Role="TimeSheet" EntitySet="TimeSheets" />
-      <End Role="Sale" EntitySet="Sales" />
     </AssociationSet>
     <AssociationSet Name="FK_TimeSheet_Service" Association="Self.FK_TimeSheet_Service">
       <End Role="Service" EntitySet="Services" />

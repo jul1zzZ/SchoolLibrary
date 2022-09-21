@@ -17,6 +17,7 @@ namespace School.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
+            this.Sales = new HashSet<Sale>();
             this.TimeSheets = new HashSet<TimeSheet>();
         }
     
@@ -33,6 +34,8 @@ namespace School.Entities
         public int CategoryEmployeeID { get; set; }
     
         public virtual CategoryEmployee CategoryEmployee { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sale> Sales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TimeSheet> TimeSheets { get; set; }
     }

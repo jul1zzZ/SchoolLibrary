@@ -14,19 +14,11 @@ namespace School.Entities
     
     public partial class TimeSheet
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TimeSheet()
-        {
-            this.Sales = new HashSet<Sale>();
-        }
-    
         public int TimeSheetID { get; set; }
         public int EmployeeID { get; set; }
         public int ServiceID { get; set; }
     
         public virtual Employee Employee { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sale> Sales { get; set; }
         public virtual Service Service { get; set; }
     }
 }

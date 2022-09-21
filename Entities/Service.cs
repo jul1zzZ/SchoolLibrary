@@ -22,13 +22,6 @@ namespace School.Entities
             this.TimeSheets = new HashSet<TimeSheet>();
         }
 
-    
-        public int ServiceID { get; set; }
-        public string Name { get; set; }
-        public string MainPhoto { get; set; }
-        public double Duration { get; set; }
-        public double Price { get; set; }
-        public Nullable<int> Sale { get; set; }
 
         public string GetPhoto
         {
@@ -69,7 +62,7 @@ namespace School.Entities
             }
         }
 
-       public string GetColor
+        public string GetColor
         {
             get
             {
@@ -80,6 +73,28 @@ namespace School.Entities
             }
         }
 
+        public double GetPrice
+        {
+            get
+            {
+                if (GetSale > 0)
+                {
+                    return Price * (1 - (GetSale * 0.01));
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        public int ServiceID { get; set; }
+        public string Name { get; set; }
+        public string MainPhoto { get; set; }
+        public double Duration { get; set; }
+        public double Price { get; set; }
+        public Nullable<int> Sale { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Delivery> Deliveries { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

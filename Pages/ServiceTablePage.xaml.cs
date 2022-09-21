@@ -28,18 +28,37 @@ namespace School.Pages
             InitializeComponent();
             Services = VolgaEntities.GetContext().Services.ToList();
             DataContext = Services;
+            DataService.ItemsSource = VolgaEntities.GetContext().Services.ToList();
+            
 
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
 
+            var selectedGoods = DataService.SelectedItems.Cast<Service>().ToList();
+            MessageBoxResult messageBoxResult = MessageBox.Show($"Удалить {selectedGoods.Count()} записей?", "Удаление", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (messageBoxResult == MessageBoxResult.OK)
+            {
+                try
+                {
+                    Service x = selectedGoods[0];
+                    var complects = VolgaEntities.GetContext().Services.Where(p => p.ServiceID == x.ServiceID).ToList();
+                    VolgaEntities.GetContext().Services.Remove(x);
+                    VolgaEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Записи удалены");
+                    List<Service> services = VolgaEntities.GetContext().Services.OrderBy(p => p.Name).ToList();
+                    DataService.ItemsSource = null;
+                    DataService.ItemsSource = services;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString(), "Ошибка удаления", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
-        private void AddBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Pages.EditPage(null));
-        }
+        
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
