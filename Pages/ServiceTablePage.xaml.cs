@@ -43,7 +43,7 @@ namespace School.Pages
                 try
                 {
                     Service x = selectedGoods[0];
-                    var complects = VolgaEntities.GetContext().Services.Where(p => p.ServiceID == x.ServiceID).ToList();
+                    var complects = VolgaEntities.GetContext().Deliveries.Where(p => p.ServiceID == x.ServiceID).ToList();
                     VolgaEntities.GetContext().Services.Remove(x);
                     VolgaEntities.GetContext().SaveChanges();
                     MessageBox.Show("Записи удалены");
@@ -53,7 +53,7 @@ namespace School.Pages
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message.ToString(), "Ошибка удаления", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(ex.InnerException.ToString());
                 }
             }
         }
@@ -71,6 +71,11 @@ namespace School.Pages
             VolgaEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
             List<Service> services = VolgaEntities.GetContext().Services.OrderBy(p => p.Name).ToList();
             DataService.ItemsSource = services;
+        }
+
+        private void DataService_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = (e.Row.GetIndex() + 1).ToString();
         }
     }
 }

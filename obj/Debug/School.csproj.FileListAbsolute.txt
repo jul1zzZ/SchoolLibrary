@@ -116,3 +116,5 @@ C:\Users\witless\Desktop\SchoolLibrary-main\obj\Debug\School.csproj.CoreCompileI
 C:\Users\witless\Desktop\SchoolLibrary-main\obj\Debug\School.csproj.CopyComplete
 C:\Users\witless\Desktop\SchoolLibrary-main\obj\Debug\School.exe
 C:\Users\witless\Desktop\SchoolLibrary-main\obj\Debug\School.pdb
+C:\Users\witless\Desktop\School\obj\Debug\Pages\ServiceTablePage.g.cs
+C:\Users\witless\Desktop\School\obj\Debug\Pages\ServiceTablePage.baml

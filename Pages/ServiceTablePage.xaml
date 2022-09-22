@@ -13,7 +13,7 @@
             <RowDefinition/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <DataGrid ItemsSource="{Binding Service}" x:Name="DataService" AutoGenerateColumns="False">
+        <DataGrid ItemsSource="{Binding Service}" x:Name="DataService" AutoGenerateColumns="False" LoadingRow="DataService_LoadingRow">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Наименование" Width="*">
                     <DataGridTemplateColumn.CellTemplate>

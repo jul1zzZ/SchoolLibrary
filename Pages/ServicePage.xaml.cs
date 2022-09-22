@@ -46,20 +46,6 @@ namespace School.Pages
             }
         }
 
-        private List<Button> buttons()
-        {
-            List<Button> buttons = new List<Button>();
-            for (int i =0 ;i < ServiceLB.Items.Count; i++)
-            {
-                if (ServiceLB.Items[i] is Button)
-                {
-                    Button b = (Button)ServiceLB.Items[i];
-                    buttons.Add(b);
-                }
-            }
-            return buttons;
-        }
-
         private void Update()
         {
             List<Service> services = VolgaEntities.GetContext().Services.OrderBy(p => p.Name).ToList();
