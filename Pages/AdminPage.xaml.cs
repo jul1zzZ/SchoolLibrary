@@ -10,22 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.IO;
-
+using School.Entities;
+using School.Pages;
+using School.Properties;
 
 namespace School.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AdminWindow.xaml
+    /// Логика взаимодействия для AdminPage.xaml
     /// </summary>
-    public partial class AdminWindow : Window
+    public partial class AdminPage : Page
     {
 
         string _correctPass { get; set; }
         public bool _IsCorrect { get; set; } = false;
-
-        public AdminWindow()
+        public AdminPage()
         {
             InitializeComponent();
             _correctPass = "0000";
@@ -37,7 +38,6 @@ namespace School.Pages
             if (_correctPass != PassTb.Text)
             {
                 MessageBox.Show("Пароль введен неверно");
-                this.Close();               
             }
             _IsCorrect = true;
             AuthAdmin.IsAuth = true;
@@ -45,8 +45,8 @@ namespace School.Pages
             {
                 _IsCorrect = true;
                 AuthAdmin.IsAuth = true;
-                this.Close();
-                
+                NavigationService.Navigate(new Pages.ServicePageAdmin());
+
             }
         }
     }

@@ -18,22 +18,20 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
             <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Service ID" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <TextBlock Text="Name" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
-        <TextBlock Text="Duration" VerticalAlignment="Center" Grid.Row="2" HorizontalAlignment="Center"/>
-        <TextBlock Text="Price" VerticalAlignment="Center" Grid.Row="3" HorizontalAlignment="Center"/>
-        <TextBlock Text="Sale" VerticalAlignment="Center" Grid.Row="4" HorizontalAlignment="Center"/>
-        <Button x:Name="LoadPhotoBtn" VerticalAlignment="Center" Grid.Row="5" HorizontalAlignment="Center" Content="Загрузить фото"  Padding="20 10" Click="LoadPhotoBtn_Click" Foreground="White" Background="CornflowerBlue"/>
-        <Button x:Name="SaveButton" VerticalAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center" Click="SaveButton_Click" Content="Сохранить" Grid.Row="7" Padding="20 10" Foreground="White" Background="CornflowerBlue"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ServiceID}" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Duration}" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Price}" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Sale}" VerticalAlignment="Center"/>
-        <Image Grid.Column="1" Grid.Row="5" Source="{Binding GetPhoto}"/>
+
+        <TextBlock Text="Name" VerticalAlignment="Center" Grid.Row="0" HorizontalAlignment="Center"/>
+        <TextBlock Text="Duration" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center"/>
+        <TextBlock Text="Price" VerticalAlignment="Center" Grid.Row="2" HorizontalAlignment="Center"/>
+        <TextBlock Text="Sale" VerticalAlignment="Center" Grid.Row="3" HorizontalAlignment="Center"/>
+        <Button x:Name="LoadPhotoBtn" VerticalAlignment="Center" Grid.Row="4" HorizontalAlignment="Center" Content="Загрузить фото"  Padding="20 10" Click="LoadPhotoBtn_Click" Foreground="White" Background="CornflowerBlue"/>
+        <Button x:Name="SaveButton" VerticalAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center" Click="SaveButton_Click" Content="Сохранить" Grid.Row="5" Padding="20 10" Foreground="White" Background="CornflowerBlue"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Duration}" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Sale}" VerticalAlignment="Center"/>
+        <Image Grid.Column="1" Grid.Row="4" Source="{Binding GetPhoto}"/>
     </Grid>
 </Page>

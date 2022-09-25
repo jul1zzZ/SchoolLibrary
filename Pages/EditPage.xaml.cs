@@ -32,7 +32,7 @@ namespace School.Pages
         {
             InitializeComponent();
             Service = service ?? new Service();
-            DataContext = service;
+            DataContext = Service;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\witless\Desktop\School\App.xaml
-5695534576
+7662207014
 2-1436223632
-261280838898
+28881446279
 191258240642
-MainWindow.xaml;Pages\AdminWindow.xaml;Pages\EditPage.xaml;Pages\ServicePage.xaml;Pages\ServiceTablePage.xaml;
+MainWindow.xaml;Pages\AdminPage.xaml;Pages\AdminWindow.xaml;Pages\EditPage.xaml;Pages\ServicePage.xaml;Pages\ServicePageAdmin.xaml;Pages\ServiceTablePage.xaml;
 
 False
 

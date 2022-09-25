@@ -118,3 +118,7 @@ C:\Users\witless\Desktop\SchoolLibrary-main\obj\Debug\School.exe
 C:\Users\witless\Desktop\SchoolLibrary-main\obj\Debug\School.pdb
 C:\Users\witless\Desktop\School\obj\Debug\Pages\ServiceTablePage.g.cs
 C:\Users\witless\Desktop\School\obj\Debug\Pages\ServiceTablePage.baml
+C:\Users\witless\Desktop\School\obj\Debug\Pages\AdminPage.g.cs
+C:\Users\witless\Desktop\School\obj\Debug\Pages\ServicePageAdmin.g.cs
+C:\Users\witless\Desktop\School\obj\Debug\Pages\AdminPage.baml
+C:\Users\witless\Desktop\School\obj\Debug\Pages\ServicePageAdmin.baml

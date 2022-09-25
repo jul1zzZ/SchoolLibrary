@@ -1,4 +1,4 @@
-﻿<Page x:Class="School.Pages.ServicePage"
+﻿<Page x:Class="School.Pages.ServicePageAdmin"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:School.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ServicePage" IsVisibleChanged="Page_IsVisibleChanged">
+      Title="ServicePageAdmin" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -16,18 +16,19 @@
         </Grid.RowDefinitions>
 
         <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock Text="Введите для поиска: "/>
+            <TextBlock Text="Введите для поиска: " Foreground="White"/>
             <TextBox x:Name="SearchTb" TextChanged="SearchTb_TextChanged" Margin="0 0 10 0" Width="150"/>
-            <TextBlock Text="Сортировка: "/>
+            <TextBlock Text="Сортировка: " Foreground="White"/>
             <ComboBox x:Name="ServicesSortCb" SelectionChanged="ServicesSortCb_SelectionChanged" Margin="0 0 10 0" Width="150">
                 <ComboBoxItem Content="По возрастанию"/>
                 <ComboBoxItem Content="По убыванию"/>
             </ComboBox>
-            <TextBlock Text="Фильтрация: "/>
+            <TextBlock Text="Фильтрация: " Foreground="White"/>
             <ComboBox x:Name="ServicesFiltCb" SelectionChanged="ServicesFiltCb_SelectionChanged" Margin="0 0 10 0" Width="150"/>
+            <Button x:Name="BtnTable" Content="Услуги" Foreground="White" Background="CornflowerBlue" Click="BtnTable_Click" Width="40" Height="20" Margin="10 0" />
         </StackPanel>
 
-        <ListBox Grid.Row="1" x:Name="ServiceLB" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="750" SelectionChanged="ServiceLB_SelectionChanged">
+        <ListBox Grid.Row="1" x:Name="ServiceLB" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="750" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="10" Background="{Binding GetColor}">
@@ -54,13 +55,13 @@
         </ListBox>
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
 
-            <TextBlock Text="Номер страницы: "/>
+            <TextBlock Text="Номер страницы: " Foreground="White"/>
             <TextBox x:Name="PageCount" Text="1" Width="100" TextChanged="PageCount_TextChanged" VerticalAlignment="Center"/>
 
-            <Button x:Name="prevPages" Content="prev" Click="prevPages_Click" Width="50"/>
-            <Button x:Name="firstBtn" Content="1" Click="firstBtn_Click" Width="50"/>
-            <Button x:Name="secondBtn" Content="2" Click="secondBtn_Click" Width="50"/>
-            <Button x:Name="BtnNext" Content="Next" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="BtnNext_Click"/>
+            <Button x:Name="prevPages" Content="prev" Click="prevPages_Click" Foreground="White" Background="CornflowerBlue" Width="50"/>
+            <Button x:Name="firstBtn" Content="1" Click="firstBtn_Click" Foreground="White" Background="CornflowerBlue" Width="50"/>
+            <Button x:Name="secondBtn" Content="2" Click="secondBtn_Click" Foreground="White" Background="CornflowerBlue" Width="50"/>
+            <Button x:Name="BtnNext" Content="Next" Grid.Row="2" HorizontalAlignment="Right" Foreground="White" Background="CornflowerBlue" VerticalAlignment="Bottom" Click="BtnNext_Click"/>
         </StackPanel>
     </Grid>
 </Page>

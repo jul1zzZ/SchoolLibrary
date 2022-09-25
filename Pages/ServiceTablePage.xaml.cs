@@ -77,5 +77,10 @@ namespace School.Pages
         {
             e.Row.Header = (e.Row.GetIndex() + 1).ToString();
         }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.EditPage(null));
+        }
     }
 }

@@ -31,15 +31,6 @@ namespace School
 
         private void MaimFrame_ContentRendered(object sender, EventArgs e)
         {
-            if (AuthAdmin.IsAuth)
-            {
-                ServiceBtn.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                ServiceBtn.Visibility = Visibility.Collapsed;
-            }
-
             if (MaimFrame.CanGoBack)
             {
                 BtnBack.Visibility = Visibility.Visible;
@@ -64,9 +55,7 @@ namespace School
 
         private void AdminBtn_Click(object sender, RoutedEventArgs e)
         {
-            AdminWindow adminWindow = new AdminWindow();
-            adminWindow.Show();
-            AuthAdmin.IsAuth = true;
+            MaimFrame.Navigate(new Pages.AdminPage());
         }
 
         private void ServiceBtn_Click(object sender, RoutedEventArgs e)

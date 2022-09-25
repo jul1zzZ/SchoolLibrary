@@ -9,6 +9,6 @@ namespace School
 {
     class AuthAdmin
     {
-        static public bool IsAuth { get; set; } = true;
+        static public bool IsAuth { get; set; } = false;
     }
 }
