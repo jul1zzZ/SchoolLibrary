@@ -34,7 +34,7 @@ namespace School.Pages
                 Sale = 100
             });
             ServicesFiltCb.ItemsSource = services;
-            ServicesFiltCb.DisplayMemberPath = "Sale";
+            ServicesFiltCb.DisplayMemberPath = "GetSale";
             ServicesFiltCb.SelectedIndex = 0;
             ServicesSortCb.SelectedIndex = 0;
         }
@@ -49,7 +49,7 @@ namespace School.Pages
             }
             if (ServicesFiltCb.SelectedIndex > 0)
             {
-                services = services.OrderBy(p => p.Sale).ToList();
+                services = services.OrderBy(p => p.ServiceID == (ServicesFiltCb.SelectedItem as Service).ServiceID).ToList();
             }
             if (ServicesSortCb.SelectedIndex > 0)
             {

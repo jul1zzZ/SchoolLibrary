@@ -46,7 +46,7 @@
                                 <Run x:Name="TxtPrice" Text="{Binding Price, StringFormat='{}{0} рублей(-я)'}"/>
                                 <Run Text="{Binding Duration, StringFormat='{}за {0} минут'}"/>
                             </TextBlock>
-                            <TextBlock FontSize="16" Margin="0 0 0 10" Text="{Binding GetPrice}">
+                            <TextBlock FontSize="16" Margin="0 0 0 10" Text="{Binding GetPrice, StringFormat='{}Цена с учетом скидки: {0}'}">
                             </TextBlock>
                         </StackPanel>
                     </Grid>

@@ -88,6 +88,39 @@ namespace School.Entities
             }
         }
 
+
+        public string GetStrngSale
+        {
+            get
+            {
+                if (GetSale >= 5)
+                {
+                    return "От 0% до 5%";
+                }
+                if (GetSale < 5)
+                {
+                    return "От 5% до 15%";
+                }
+                if (GetSale < 15)
+                {
+                    return "От 15% до 30%";
+                }
+                if (GetSale < 30)
+                {
+                    return "От 30% до 70%";
+                }
+                if (GetSale < 70)
+                {
+                    return "От 70% до 100%";
+                }
+                else
+                {
+                    return "0%";
+                }
+            }
+
+        }
+
         public int ServiceID { get; set; }
         public string Name { get; set; }
         public string MainPhoto { get; set; }

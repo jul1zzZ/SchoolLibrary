@@ -19,8 +19,8 @@
         <TextBox x:Name="PassTb" Grid.Row="1" Width="230" Height="20" VerticalAlignment="Center" Margin="0 5"/>
         <Button x:Name="CheckBtn" Grid.Row="1" Width="50" Height="25" VerticalAlignment="Bottom" Margin="60" Content="Check" FontSize="10" Foreground="White" Background="CornflowerBlue" Click="CheckBtn_Click"/>
 
-        <TextBlock Text="Language School" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Image Source="Resources\school_logo.png" HorizontalAlignment="Left" Stretch="Uniform" Width="30" Margin="10 0"/>
+        <TextBlock Text="Language School" FontStyle="Italic" HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center"/>
+        <Image Source="C:\Users\witless\Desktop\School\Resources\school_logo.png" HorizontalAlignment="Left" Stretch="Uniform"  Margin="10 0"/>
 
     </Grid>
 </Page>
